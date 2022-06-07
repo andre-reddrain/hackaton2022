@@ -9,21 +9,12 @@ export default function Table(props) {
 
     useEffect(() => {
         async function CallBack() {
-          // let temp =  [
-          //       { _id: ("629f7a2029b0e642f3468228"), test: 'TesteGato1' },
-          //       { _id: ("629f7a2229b0e642f3468229"), test: 'TesteGato2' },
-          //       { _id: ("629f7a2329b0e642f346822a"), test: 'TesteGato3' }
-          //     ]
           const res = await fetch(
             `../../api/cats/getCats`, {
             method: "GET"
           })
-          console.log(res)
           const json = await res.json()
-          console.log(json)
           props.setGatos(json)
-          //props.setGatos(temp)
-          console.log("Fim do UseEffect")
         }
         CallBack()
       }, [])
@@ -46,6 +37,7 @@ export default function Table(props) {
               <span> {e.age} years</span>
               <span> {e.weight} kg</span>
               <span> {e.breed}</span>
+              <span> -{e.costs[0]} kg / -{e.costs[1]} kg</span>
             </div>
           )
         })
