@@ -17,7 +17,6 @@ export default function AddNewCat(props) {
         }
     })
 
-
     // const submit = async () => {
     //   const res = await fetch(
     //     '../../api/cards/createCard', {
