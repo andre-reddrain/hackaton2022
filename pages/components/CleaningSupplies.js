@@ -9,26 +9,6 @@ export default function CleaningSupplies(props) {
             Dewormer: ""
     })
 
-
-    // Fetch da base dados
-    
-    //const submit = async () => {
-    //   const res = await fetch(
-    //     '../../api/cards/createCard', {
-    //     body: JSON.stringify(catInfo),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Authenticate": localStorage.getItem("tokenG3")
-    //     },
-    //     method: "POST"
-    //   })
-
-    //   const json = await res.json()
-  
-    // }
-  
-
-
   return (
      
     <div>
@@ -39,19 +19,19 @@ export default function CleaningSupplies(props) {
         }}>
             <fieldset>
             <label>Bleach</label><br />
-            <p>SERÁ?</p>
+            <p>{props.resources.cleaningSupplies.bleach}</p>
 
 
             <label>Detergent</label><br />
-            <p>SERÁ?</p>
+            <p>{props.resources.cleaningSupplies.detergent}</p>
 
 
             <label>Vaccines</label><br />
-            <p>SERÁ?</p>
+            <p>{props.resources.cleaningSupplies.vaccines}</p>
 
 
             <label>Dewormer</label><br />
-            <p>SERÁ?</p>
+            <p>{props.resources.cleaningSupplies.dewormer}</p>
 
 {/* <button onClick={}></button> */}
             </fieldset>
