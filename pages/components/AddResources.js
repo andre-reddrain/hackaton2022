@@ -74,6 +74,12 @@ export default function AddResources(props) {
                     onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}>
                 </input> <span>{props.resources.cleaningSupplies.detergent} / {props.resources.maxStockCleaningSupplies}</span><br />
 
+                <label>Donation</label>
+                    <input type="checkbox"
+                    
+                    // onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}
+                    ></input><br />
+
                 <input type="submit"></input>
             </fieldset>
         </form>

@@ -22,27 +22,31 @@ export default function Table(props) {
   return (
     <div>
       <div>
+        <fieldset>
         <label />Name
         <label />Age
         <label />Weight
         <label />Breed
         <label />Expenses
+        </fieldset>
       </div>
-      <div>
+     
       {
-        props.gatos.map((e) => {
+        props.gatos.map((e, i) => {
           return (
-            <div>
-              <span>{e.name}</span>
-              <span> {e.age} years</span>
-              <span> {e.weight} kg</span>
-              <span> {e.breed}</span>
-              <span> -{e.costs[0]} kg / -{e.costs[1]} kg</span>
+            <div key={i}>
+              <fieldset>
+                <span>{e.name}</span>
+                <span> {e.age} years</span>
+                <span> {e.weight} kg</span>
+                <span> {e.breed}</span>
+                <span> -{e.costs[0]} kg / -{e.costs[1]} kg</span>
+              </fieldset>
+
             </div>
           )
         })
       }
 
-      </div>  
     </div>
   )}
