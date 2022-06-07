@@ -7,12 +7,12 @@ name : String
 age : Int
 race : String
 weight : Number
+dewormer : Date
 costs: [
     0 : food
-    1 : water
-    2 : sand
+    1 : sand
 ]
-dewormer : Date
+
 */
 
 async function createCat(data) {

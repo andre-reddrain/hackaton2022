@@ -4,11 +4,12 @@ const { DATABASE_NAME, COLLECTION_RESOURCES, getMongoCollection } = require("./d
 /* Data Structure
 _id : ObjectId
 food : Number
-water : Number
 sand : Number
-costs : Number
-maxStockFood : Number
-maxStockSand : Number
+cleaningSupplies : Number(?)
+capital : Number
+maxStockFood : Number (500kg)
+maxStockSand : Number (500kg)
+maxStockCleaningSupplies : Number (50)
 */
 
 async function getResources() {
