@@ -107,14 +107,14 @@ async function populateResources() {
     */
     const collection = await getMongoCollection(DATABASE_NAME, COLLECTION_RESOURCES)
     await collection.insertOne({
-        food: 2,
-        sand: 2,
-        cleaningSupplies: [
-            50, //Bleach
-            50, //Detergent
-            25, //Vaccines
-            100 //Dewormer
-        ],
+        food: 249,
+        sand: 400,
+        cleaningSupplies: {
+            bleach: 50, //Bleach
+            detergent: 50, //Detergent
+            vaccines: 25, //Vaccines
+            dewormer: 100 //Dewormer
+        },
         capital: 1000,
         maxStockFood: 500,
         maxStockSand: 500,
