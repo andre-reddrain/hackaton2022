@@ -1,7 +1,7 @@
 import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import {useState} from "react"
+import {useState, useEffect} from "react"
 // import { useRouter } from "next/router"
 import AddNewCat from "./components/AddNewCat"
 import AddResources from "./components/AddResources"
@@ -14,15 +14,20 @@ export default function Dashboard(props) {
     const [viewResourceForm, setViewResourceForm] = useState(false)
     const [cleaningSupply, setCleaningSupply] = useState(false)
     const [gatos, setGatos] = useState([])
+    const [resources, setResources] = useState()
 
-    /* 
-    gatos há de ser um array de 
-    {
-        name: "string",
-
-        FAZER CHECKBOX PARA DOAÇAO OU NAO
-    }
-    */
+    useEffect(() => {
+        async function CallBack() {
+          const res = await fetch(
+            `../../api/resources/getResources`, {
+            method: "GET"
+          })
+          const json = await res.json()
+          console.log(json)
+          setResources(json)
+        }
+        CallBack()
+      }, [])
 
   return (
     <div >
@@ -43,7 +48,9 @@ export default function Dashboard(props) {
     onClick={() => 
         setCleaningSupply(s => !s)}>CLEANING SUPPLY
         {cleaningSupply && <div>
-            <CleaningSupplies />
+            <CleaningSupplies 
+            resources={resources}
+            />
             </div>}</div>
     <div>CAPITAL</div>
 
@@ -81,7 +88,8 @@ export default function Dashboard(props) {
         {viewResourceForm && 
         <AddResources 
             viewResourceForm ={viewResourceForm} 
-            setViewResourceForm ={setViewResourceForm}/> }
+            setViewResourceForm ={setViewResourceForm}
+            resources={resources}/> }
     </div>
   
 

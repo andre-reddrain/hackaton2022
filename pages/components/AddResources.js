@@ -5,77 +5,76 @@ import {useState} from "react"
 
 export default function AddResources(props) {
     const [resource, setResource] = useState({
-        Food: "number",
-        Sand: "number",
-        Bleach: "number (litros)",
-        Detergent: "number (litros)",
-        Dewormer: "number"
-        
-        })
-
-
-        // const submit = async () => {
-
-        //     const res = await fetch(
-        //       '../../api/cards/createCard', {
-        //       body: JSON.stringify(resource),
-        //       headers: {
-        //         "Content-Type": "application/json",
-        //         "Authenticate": localStorage.getItem("tokenG3")
-        //       },
-        //       method: "POST"
-        //     })
-
-        //     const json = await res.json()
-
-        //   }
-        
-
+        Food: 0,
+        Sand: 0,
+        Bleach: 0,
+        Detergent: 0,
+        Vaccines: 0,
+        Dewormer: 0
+    })
 
   return (
-   
     <div>
         <form onSubmit={(e) => {
             e.preventDefault(),
             props.setViewResourceForm(false)
-            // submit()
+            console.log(`Food: ${props.resources.food} + ${resource.Food} = ${props.resources.food + resource.Food}`)
+            console.log(`Sand: ${props.resources.sand} + ${resource.Sand} = ${props.resources.sand + resource.Sand}`)
+            console.log(`Cleaning Supplies (Bleach): ${props.resources.cleaningSupplies.bleach} + ${resource.Bleach} = ${props.resources.cleaningSupplies.bleach + resource.Bleach}`)
+            console.log(`Cleaning Supplies (Detergent): ${props.resources.cleaningSupplies.detergent} + ${resource.Detergent} = ${props.resources.cleaningSupplies.detergent + resource.Detergent}`)
+            console.log(`Cleaning Supplies (Vaccines): ${props.resources.cleaningSupplies.vaccines} + ${resource.Vaccines} = ${props.resources.cleaningSupplies.vaccines + resource.Vaccines}`)
+            console.log(`Cleaning Supplies (Dewormer): ${props.resources.cleaningSupplies.dewormer} + ${resource.Dewormer} = ${props.resources.cleaningSupplies.dewormer + resource.Dewormer}`)
         }}>
-        <fieldset>
-        <label>Add Food in Kg</label><br />
-            <input 
-            type="text" 
-            name="name" 
-            placeholder="eg. 6"
-            onChange={(e) => 
-            setResource({ ...resource, Food: e.target.value })}></input><br/>
+            <fieldset>
+                <label>Add Food (kg)</label><br />
+                <input 
+                    type="number" 
+                    placeholder="eg. 6"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Food: e.target.value })}>
+                </input> <span>{props.resources.food} / {props.resources.maxStockFood}</span><br/>
 
+                <label>Add Sand (kg)</label><br />
+                <input 
+                    type="number" 
+                    placeholder="eg. 6"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Sand: e.target.value })}>
+                </input> <span>{props.resources.sand} / {props.resources.maxStockSand}</span><br />
 
-        <label>Add Sand in Kg</label><br />
-            <input 
-            type="text" 
-            placeholder="eg. 6"
-            onChange={(e) => setResource({ ...resource, Sand: e.target.value })}></input><br />
+                <label>Add Bleach (bottles)</label><br />
+                <input 
+                    type="number" 
+                    placeholder="eg. 6"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Bleach: e.target.value })}>
+                </input> <span>{props.resources.cleaningSupplies.bleach} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-        <label>Add Bleach in Lt.</label><br />
-            <input 
-            type="text" 
-            placeholder="eg. 6"
-            onChange={(e) => setResource({ ...resource, Bleach: e.target.value })}></input><br />
+                <label>Add Detergent (bottles)</label><br />
+                <input 
+                    type="number" 
+                    placeholder="eg. 6"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Detergent: e.target.value })}>
+                </input> <span>{props.resources.cleaningSupplies.detergent} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-        <label>Add Detergent in Lt.</label><br />
-            <input 
-            type="text" 
-            placeholder="eg. 6"
-            onChange={(e) => setResource({ ...resource, Detergent: e.target.value })}></input><br />
+                <label>Add Vaccines (quantity)</label><br />
+                <input 
+                    type="number" 
+                    placeholder="eg. 6"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Vaccines: e.target.value })}>
+                </input> <span>{props.resources.cleaningSupplies.vaccines} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-        <label>Add Dewormer</label><br />
-            <input 
-            type="text" 
-            placeholder="eg. 6"
-            onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}></input><br />
+                <label>Add Dewormer (quantity)</label><br />
+                <input 
+                    type="number" 
+                    placeholder="eg. 6"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}>
+                </input> <span>{props.resources.cleaningSupplies.detergent} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-        <input type="submit"></input>
-
+                <input type="submit"></input>
             </fieldset>
         </form>
     </div>
