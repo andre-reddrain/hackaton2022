@@ -6,17 +6,21 @@ import {useState} from "react"
 import AddNewCat from "./components/AddNewCat"
 import AddResources from "./components/AddResources"
 import Table from "./components/Table"
+import CleaningSupplies from "./components/CleaningSupplies"
 
 export default function Dashboard(props) {
     const [showTable, setShowTable] = useState(false)
     const [viewCatForm, setViewCatForm] = useState(false)
-    const [addResources, setAddResources] = useState(false)
+    const [viewResourceForm, setViewResourceForm] = useState(false)
+    const [cleaningSupply, setCleaningSupply] = useState(false)
     const [gatos, setGatos] = useState([])
 
     /* 
     gatos há de ser um array de 
     {
         name: "string",
+
+        FAZER CHECKBOX PARA DOAÇAO OU NAO
     }
     */
 
@@ -35,28 +39,49 @@ export default function Dashboard(props) {
     <div>aqui vao estar as bolas:
     <div>FOOD</div>
     <div>SAND</div>
-    <div>CLEANING SUPPLY</div>
+    <div 
+    onClick={() => 
+        setCleaningSupply(s => !s)}>CLEANING SUPPLY
+        {cleaningSupply && <div>
+            <CleaningSupplies />
+            </div>}</div>
     <div>CAPITAL</div>
 
     <div>.</div>
    <div>.</div>
    <div>.</div>
 
-    <button onClick={() => setShowTable(!showTable)}>{showTable ? "Show Table" : "Hide Table"}
+    <button onClick={() => setShowTable(s => !s)}>
+        {showTable ? "Hide Table" : "Show Table"}
     </button>
     {showTable && <div>
         <Table 
-        gatos
-        setShowTable
-        showTable
+        gatos={gatos}
+        setGatos={setGatos}
+        setShowTable={setShowTable}
+        showTable={showTable}
         />
         </div>}
 
-    <button onClick={() => setViewCatForm(!viewCatForm)}>Add New Cat</button>{viewCatForm && <div>
-        <AddNewCat setGatos viewCatForm setViewCatForm/>
+    <button onClick={() => 
+        setViewCatForm(s => !s)}>
+            Add New Cat
+        </button>
+        {viewCatForm && <div>
+        <AddNewCat 
+            setGatos ={setGatos} 
+            viewCatForm ={viewCatForm}
+            setViewCatForm ={setViewCatForm}/>
         </div> }
 
-    <button onClick={() => setAddResources(!addResources)}>Add Resources</button>{addResources && <AddResources addResources setAddResources/> }
+    <button onClick={() => 
+        setViewResourceForm(s => !s)}>
+        Add Resources
+        </button>
+        {viewResourceForm && 
+        <AddResources 
+            viewResourceForm ={viewResourceForm} 
+            setViewResourceForm ={setViewResourceForm}/> }
     </div>
   
 
