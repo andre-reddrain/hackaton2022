@@ -1,11 +1,15 @@
-const { ObjectId } = require('mongodb')
+import { ObjectId } from "mongodb"
 const { DATABASE_NAME, COLLECTION_RESOURCES, getMongoCollection } = require("./db")
 
 /* Data Structure
 _id : ObjectId
 food : Number
 sand : Number
-cleaningSupplies : Number(?)
+cleaningSupplies : [
+    bleach : Number (50L)
+    detergent : Number (50L)
+    dewormer : Number (100)
+]
 capital : Number
 maxStockFood : Number (500kg)
 maxStockSand : Number (500kg)
