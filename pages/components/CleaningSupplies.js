@@ -33,8 +33,8 @@ export default function CleaningSupplies(props) {
      
     <div>
         <form onSubmit={(e) => {
-          e.preventDefault(),
-          props.setViewCatForm(false)
+          e.preventDefault()
+          // props.setViewCatForm(false)
           // submit()
         }}>
             <fieldset>
@@ -53,8 +53,9 @@ export default function CleaningSupplies(props) {
             <label>Dewormer</label><br />
             <p>SERÁ?</p>
 
-{/* <button onClick={}></button> */}
+            <button onClick={() => props.setViewCatForm(s => !s)}>Close</button>
             </fieldset>
+           
         </form>
 
 

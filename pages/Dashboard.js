@@ -7,12 +7,15 @@ import AddNewCat from "./components/AddNewCat"
 import AddResources from "./components/AddResources"
 import Table from "./components/Table"
 import CleaningSupplies from "./components/CleaningSupplies"
+import Capital from './components/Capital'
 
 export default function Dashboard(props) {
     const [showTable, setShowTable] = useState(false)
     const [viewCatForm, setViewCatForm] = useState(false)
     const [viewResourceForm, setViewResourceForm] = useState(false)
     const [cleaningSupply, setCleaningSupply] = useState(false)
+    const [addFundings, setAddFundings] = useState(false)
+    const [capital, setCapital] = useState(false)
     const [gatos, setGatos] = useState([])
 
     /* 
@@ -41,11 +44,21 @@ export default function Dashboard(props) {
     <div>SAND</div>
     <div 
     onClick={() => 
-        setCleaningSupply(s => !s)}>CLEANING SUPPLY
-        {cleaningSupply && <div>
+        setCleaningSupply(s => !s)}>
+            CLEANING SUPPLY
+            {cleaningSupply && <div>
             <CleaningSupplies />
             </div>}</div>
-    <div>CAPITAL</div>
+    <div>
+            CAPITAL
+            <button onClick={() => 
+                setCapital(s => !s)}>
+                    Add Fundings
+                    
+            </button>
+            {capital && <div>
+            <Capital />
+            </div>}</div>
 
     <div>.</div>
    <div>.</div>
@@ -65,7 +78,7 @@ export default function Dashboard(props) {
 
     <button onClick={() => 
         setViewCatForm(s => !s)}>
-            Add New Cat
+           {viewCatForm ? "Go Back" : "Add New Cat"}
         </button>
         {viewCatForm && <div>
         <AddNewCat 
@@ -76,7 +89,7 @@ export default function Dashboard(props) {
 
     <button onClick={() => 
         setViewResourceForm(s => !s)}>
-        Add Resources
+       {viewResourceForm ? "Go Back" : "Add Resources"}
         </button>
         {viewResourceForm && 
         <AddResources 

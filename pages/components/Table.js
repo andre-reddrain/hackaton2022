@@ -9,11 +9,7 @@ export default function Table(props) {
 
     useEffect(() => {
         async function CallBack() {
-          // let temp =  [
-          //       { _id: ("629f7a2029b0e642f3468228"), test: 'TesteGato1' },
-          //       { _id: ("629f7a2229b0e642f3468229"), test: 'TesteGato2' },
-          //       { _id: ("629f7a2329b0e642f346822a"), test: 'TesteGato3' }
-          //     ]
+
           const res = await fetch(
             `../../api/cats/getCats`, {
             method: "GET"
@@ -31,26 +27,30 @@ export default function Table(props) {
   return (
     <div>
       <div>
+        <fieldset>
         <label />Name
         <label />Age
         <label />Weight
         <label />Breed
         <label />Expenses
+        </fieldset>
       </div>
-      <div>
+     
       {
-        props.gatos.map((e) => {
+        props.gatos.map((e, i) => {
           return (
-            <div>
+            <div key={i}>
+              <fieldset>
               <span>{e.name}</span>
               <span> {e.age} years</span>
               <span> {e.weight} kg</span>
               <span> {e.breed}</span>
+              </fieldset>
+             
             </div>
           )
         })
       }
 
-      </div>  
     </div>
   )}

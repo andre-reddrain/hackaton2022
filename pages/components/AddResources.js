@@ -7,10 +7,11 @@ export default function AddResources(props) {
     const [resource, setResource] = useState({
         Food: "number",
         Sand: "number",
-        Bleach: "number (litros)",
-        Detergent: "number (litros)",
-        Dewormer: "number"
-        
+        Bleach: "number",
+        Detergent: "number",
+        Vaccines: "number",
+        Dewormer: "number",
+    
         })
 
 
@@ -43,8 +44,7 @@ export default function AddResources(props) {
         <fieldset>
         <label>Add Food in Kg</label><br />
             <input 
-            type="text" 
-            name="name" 
+            type="number" 
             placeholder="eg. 6"
             onChange={(e) => 
             setResource({ ...resource, Food: e.target.value })}></input><br/>
@@ -52,27 +52,34 @@ export default function AddResources(props) {
 
         <label>Add Sand in Kg</label><br />
             <input 
-            type="text" 
+            type="number" 
             placeholder="eg. 6"
             onChange={(e) => setResource({ ...resource, Sand: e.target.value })}></input><br />
 
         <label>Add Bleach in Lt.</label><br />
             <input 
-            type="text" 
+            type="number" 
             placeholder="eg. 6"
             onChange={(e) => setResource({ ...resource, Bleach: e.target.value })}></input><br />
 
-        <label>Add Detergent in Lt.</label><br />
+        <label>Add Detergent</label><br />
             <input 
-            type="text" 
+            type="number" 
             placeholder="eg. 6"
             onChange={(e) => setResource({ ...resource, Detergent: e.target.value })}></input><br />
 
         <label>Add Dewormer</label><br />
             <input 
-            type="text" 
+            type="number" 
             placeholder="eg. 6"
             onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}></input><br />
+
+        <label>Donation</label>
+            <input 
+            type="checkbox"
+             
+            // onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}
+            ></input><br />
 
         <input type="submit"></input>
 
