@@ -34,7 +34,7 @@ async function populateCats() {
     _id : ObjectId
     name : String
     age : Int
-    race : String
+    breed : String
     weight : Number
     dewormer : Date (90-90 days)
     costs: [
@@ -49,7 +49,7 @@ async function populateCats() {
         {
             name: "Malaquias",
             age: 6,
-            race: "Persian",
+            breed: "Persian",
             weight: 3,
             dewormer: new Date(),
             costs: [costFood, costSand]
@@ -57,7 +57,7 @@ async function populateCats() {
         {
             name: "Bondi",
             age: 3,
-            race: "Siamese",
+            breed: "Siamese",
             weight: 2,
             dewormer: new Date(),
             costs: [costFood, costSand]
@@ -65,7 +65,7 @@ async function populateCats() {
         {
             name: "Malaquias Jr",
             age: 1,
-            race: "Scottish Fold",
+            breed: "Scottish Fold",
             weight: 1,
             dewormer: new Date(),
             costs: [costFood, costSand]
@@ -73,7 +73,7 @@ async function populateCats() {
         {
             name: "Goducho",
             age: 7,
-            race: "Siberian",
+            breed: "Siberian",
             weight: 4,
             dewormer: new Date(),
             costs: [costFood, costSand]
@@ -81,7 +81,7 @@ async function populateCats() {
         {
             name: "Mizuki",
             age: 8,
-            race: "Bengal cat",
+            breed: "Bengal cat",
             weight: 2,
             dewormer: new Date(),
             costs: [costFood, costSand]
