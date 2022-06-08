@@ -1,6 +1,7 @@
 
 // import styles from '../styles/Home.module.css'
 import {useState} from "react"
+import styles from "../../styles/Home.module.css"
 
 export default function AddNewCat(props) {
     const [catInfo, setCatInfo] = useState({
@@ -37,12 +38,14 @@ export default function AddNewCat(props) {
   return (
      
     <div>
-        <form onSubmit={(e) => {
+        <form
+          className={styles.newCat}
+          onSubmit={(e) => {
           e.preventDefault(),
           props.setViewCatForm(false)
           // submit()
         }}>
-            <fieldset>
+            <fieldset style={{border: 'none'}}>
             <label>Name</label><br />
             <input 
             type="text" 

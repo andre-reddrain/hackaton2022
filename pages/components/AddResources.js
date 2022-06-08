@@ -2,6 +2,7 @@ import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 import {useState} from "react"
+import styles from "../../styles/Home.module.css"
 
 export default function AddResources(props) {
     const [resource, setResource] = useState({
@@ -14,8 +15,9 @@ export default function AddResources(props) {
     })
 
   return (
-    <div>
-        <form onSubmit={(e) => {
+    <div >
+        <form  className={styles.addResources}
+            onSubmit={(e) => {
             e.preventDefault(),
             props.setViewResourceForm(false)
             console.log(`Food: ${props.resources.food} + ${resource.Food} = ${props.resources.food + resource.Food}`)
@@ -25,7 +27,7 @@ export default function AddResources(props) {
             console.log(`Cleaning Supplies (Vaccines): ${props.resources.cleaningSupplies.vaccines} + ${resource.Vaccines} = ${props.resources.cleaningSupplies.vaccines + resource.Vaccines}`)
             console.log(`Cleaning Supplies (Dewormer): ${props.resources.cleaningSupplies.dewormer} + ${resource.Dewormer} = ${props.resources.cleaningSupplies.dewormer + resource.Dewormer}`)
         }}>
-            <fieldset>
+            <fieldset style={{border: 'none'}}>
                 <label>Add Food (kg)</label><br />
                 <input 
                     type="number" 

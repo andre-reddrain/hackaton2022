@@ -83,7 +83,8 @@ export default function Dashboard(props) {
               <div className={styles.resourceTitle}>Capital</div>
               <div className={styles.resourceInfo}>Comsumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>                         
-                <button onClick={() => setCapital(s => !s)}>Add Fundings</button>
+                <button className={styles.smoothButton}
+                onClick={() => setCapital(s => !s)}>Add Fundings</button>
                 {capital && <div>
                     <Capital />
                 </div>}
@@ -99,6 +100,7 @@ export default function Dashboard(props) {
             </button>
             {showTable && <div>
               <Table
+                className={styles.Formtable}
                 gatos={gatos}
                 setGatos={setGatos}
                 setShowTable={setShowTable}
@@ -123,9 +125,6 @@ export default function Dashboard(props) {
                   resources={resources}/> 
                 </div>
               }
-
-          </div>
-          <div className={styles.bottomDiv}>
 
           </div>
         </div>
