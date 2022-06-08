@@ -1,19 +1,13 @@
 // import styles from '../styles/Home.module.css'
 import {useState} from "react"
+import styles from '../../styles/Forms.module.css'
 
 export default function AddNewCat(props) {
     const [catInfo, setCatInfo] = useState({
         Name: "",
         Age: 0,
         Breed: "",
-        Weight: 0,
-        desparazitante: "",
-        gastos : {
-            comida: "",
-            agua: "",
-            areia: "",
-            desparazitante: ""
-        }
+        Weight: 0
     })
 
     function handleSubmit(e) {
@@ -59,8 +53,9 @@ export default function AddNewCat(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <fieldset>
-          <label>Name</label><br />
+        <fieldset
+        className={styles.resourcesForm}>
+          <label>Name</label>
           <input 
             type="text" 
             name="name" 
@@ -69,7 +64,7 @@ export default function AddNewCat(props) {
             onChange={(e) => setCatInfo({ ...catInfo, Name: e.target.value })}>
           </input><br/>
 
-          <label>Age</label><br />
+          <label>Age</label>
           <input 
             type="number"
             name="age"
@@ -79,7 +74,7 @@ export default function AddNewCat(props) {
             onChange={(e) => setCatInfo({ ...catInfo, Age: e.target.value })}>
           </input><br/>
 
-          <label>Race</label><br />
+          <label>Race</label>
           <input 
             type="text" 
             name="race" 
@@ -88,7 +83,7 @@ export default function AddNewCat(props) {
             onChange={(e) => setCatInfo({ ...catInfo, Race: e.target.value })}>
           </input><br/>
 
-          <label>Weight</label><br />
+          <label>Weight</label>
           <input 
             type="text" 
             name="weight" 
@@ -96,8 +91,18 @@ export default function AddNewCat(props) {
             placeholder="eg. 6kg"
             onChange={(e) => setCatInfo({ ...catInfo, Weight: e.target.value })}>
           </input><br />
+<span>
 
-          <input type="submit"></input>
+   <input 
+   className = {styles.buttonSubmit}
+   type="submit"></input>
+          <span>            
+            <button 
+            className = {styles.buttonClose}
+            onClick={() => props.setViewCatForm(e => !e)}>Close</button>
+            </span>
+</span>
+         
         </fieldset>
       </form>
     </div>
