@@ -18,6 +18,8 @@ export default function AddResources(props) {
     function handleSubmit(e) {
         e.preventDefault()
         props.setViewResourceForm(false)
+
+        console.log(e)
         let food = Number(props.resources.food) + Number(resource.Food)
         let sand = Number(props.resources.sand) + Number(resource.Sand)
         let cleaningSupplies = {
@@ -26,11 +28,14 @@ export default function AddResources(props) {
             vaccines: Number(props.resources.cleaningSupplies.vaccines) + Number(resource.Vaccines),
             dewormer: Number(props.resources.cleaningSupplies.dewormer) + Number(resource.Dewormer)
         }
+        let funds = Number(props.resources.capital) + Number(resource.Funds)
 
-        updateResources(food, sand, cleaningSupplies)
+        //let checked = e.target[8].checked // Donations
+
+        updateResources(food, sand, cleaningSupplies, funds)
     }
 
-    async function updateResources(food, sand, cleaningSupplies) {
+    async function updateResources(food, sand, cleaningSupplies, funds) {
         const res = await fetch(`../../api/resources/updateResources`, {
             method: "PATCH",
             headers: {
@@ -39,7 +44,8 @@ export default function AddResources(props) {
             body: JSON.stringify({
                 food: food,
                 sand: sand,
-                cleaningSupplies: cleaningSupplies
+                cleaningSupplies: cleaningSupplies,
+                capital: funds
             })
         })
         const json = await res.json()
@@ -111,8 +117,9 @@ export default function AddResources(props) {
                     </input><br />
                     <span>
                         <label>Donation</label>
-                        <input type="checkbox"
-
+                        <input
+                            type="checkbox"
+                            name="donation"
                         // onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}
                         ></input><br />
                     </span>
