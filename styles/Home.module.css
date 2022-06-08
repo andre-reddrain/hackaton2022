@@ -75,7 +75,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 70px;
+  font-size: 50px;
   line-height: 85px;
   letter-spacing: -0.085em;
   color: black;
@@ -93,20 +93,7 @@
   color: var(--japanese-indigo);
 }
 
-.resourceInfo {
-  display: flex;
-  justify-content: center;
-  font-family: 'Merriweather Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 154%;
-  /* or 23px */
 
-  letter-spacing: -0.035em;
-
-  color: #000000;
-}
 
 .resourceDate {
   display: flex;
@@ -119,6 +106,7 @@
   /* or 31px */
   letter-spacing: -0.035em;
   color: #000000;
+  margin-top: 30px;
 }
 
 .button {
@@ -149,4 +137,39 @@
   width: 1920px;
   height: 435px;
   background: linear-gradient(94.9deg, #104911 3.89%, #81C653 90.13%);
+}
+
+.cleaningTitle{
+  display: flex;
+  justify-content: center;
+  font-family: 'Proza Libre';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 48px;
+  letter-spacing: -0.05em;
+  color: var(--japanese-indigo);
+  margin-top: 50px;
+  margin-left: 65px;
+  
+}
+
+.cleaningDate{
+  display: flex;
+  justify-content: center;
+  font-family: 'Proza Libre';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 154%;
+  /* or 31px */
+  letter-spacing: -0.035em;
+  color: #000000;
+  margin-top: 45px;
+
+}
+
+.addFundings{
+  margin-left: 76px;
+  display: flex;
 }

@@ -1,4 +1,4 @@
-
+import styles from "../../styles/Forms.module.css"
 export default function Capital(props) {
   
 
@@ -26,16 +26,18 @@ export default function Capital(props) {
      
     <div>
         <form 
-        // onSubmit={(e) => {
-        //   e.preventDefault()
-        //   // props.setViewCatForm(false)
-        //   // submit()
-        // }}
+        onSubmit={(e) => {
+          e.preventDefault()
+          // props.setViewCatForm(false)
+          // submit()
+        }}
         >
-            <fieldset>
+            <fieldset 
+            className={styles.addFundings}>
             <label>AVAILABLE CAPITAL</label><br />
             
-           <input type="number"></input> 
+           <input type="number" min="0"></input><br />
+           <input type="submit"></input> 
             
             
 
