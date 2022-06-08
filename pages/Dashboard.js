@@ -18,7 +18,7 @@ export default function Dashboard(props) {
     const [addFundings, setAddFundings] = useState(false)
     const [capital, setCapital] = useState(false)
     const [gatos, setGatos] = useState([])
-    const [resources, setResources] = useState()
+    const [resources, setResources] = useState([])
 
     useEffect(() => {
         async function CallBack() {
@@ -49,47 +49,45 @@ export default function Dashboard(props) {
         <div>
           <div className={styles.resourceContainer}>
             <div className={styles.foodContainer}>
-              <div className={styles.resourceFont}>1000kg</div>
+              <div className={styles.resourceFont}>{resources.food}kg</div>
               <div className={styles.resourceTitle}>Food</div>
               <div className={styles.resourceInfo}>Comsumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
             </div>
             <div className={styles.sandContainer}>
-              <div className={styles.resourceFont}>1000kg</div>
+              <div className={styles.resourceFont}>{resources.sand}kg</div>
               <div className={styles.resourceTitle}>Sand</div>
               <div className={styles.resourceInfo}>Comsumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
           </div>
             
-             {/* onClick={() => 
-            setCleaningSupply(s => !s)}>CLEANING SUPPLY
-            {cleaningSupply && <div>
-                <CleaningSupplies 
-                resources={resources}
-                /> */}
+            {/* TODO Fix Cleaning Supplies Menu onClick */}
             
-            <div className={styles.cleanContainer}>
-            <div className={styles.resourceFont}>1000kg</div>
-              <div className={styles.resourceTitle}>Cleaning Supplies</div>
-              <div className={styles.resourceInfo}>Comsumption expectance</div>
-              <div className={styles.resourceDate}>2 Weeks</div>
+            <div className={styles.cleanContainer}
+                onClick={() => setCleaningSupply(s => !s)}>
+                    {cleaningSupply ? <div>
+                        <CleaningSupplies 
+                            resources={resources}
+                        />
+                    </div> : <div>
+                    <div className={styles.resourceFont}> Replace</div>
+                    <div className={styles.resourceTitle}>Cleaning Supply</div>
+                    <div className={styles.resourceInfo}>Comsumption expectance</div>
+                    <div className={styles.resourceDate}>2 Weeks</div>
+                    </div>}
+
             </div>
-            <div className={styles.capitalContainer}>
-            <div className={styles.resourceFont}>1000kg</div>
+            <div className={styles.capitalContainer}
+>
+            <div className={styles.resourceFont}>{resources.capital}€</div>
               <div className={styles.resourceTitle}>Capital</div>
               <div className={styles.resourceInfo}>Comsumption expectance</div>
-              <div className={styles.resourceDate}>2 Weeks</div>
+              <div className={styles.resourceDate}>2 Weeks</div>                         
+                <button onClick={() => setCapital(s => !s)}>Add Fundings</button>
+                {capital && <div>
+                    <Capital />
+                </div>}
             </div>
-            {/*
-            <button onClick={() => 
-                setCapital(s => !s)}>
-                    Add Fundings
-                    
-            </button>
-            {capital && <div>
-            <Capital />
-            </div>}
-             */}
           </div>
 
           <div>.</div>
