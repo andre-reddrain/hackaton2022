@@ -1,5 +1,5 @@
-import { findAllResources } from "../../data/resources";
+import { patchResource } from "../../data/resources";
 
-export async function getResources() {
-    return await findAllResources()
+export async function updateResources(id, data) {
+    return await patchResource(id, data)
 }

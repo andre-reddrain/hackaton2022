@@ -44,6 +44,17 @@ async function populateCats() {
     */
     const costFood = 1.4
     const costSand = 1.5
+
+    const isBaby = ((age) => {
+        if (age <= 1) return true
+        return false
+    })
+
+    const setCosts = ((isBaby) => {
+        if (isBaby) return [costFood / 2, costSand / 2]
+        return [costFood, costSand]
+    })
+
     const collection = await getMongoCollection(DATABASE_NAME, COLLECTION_CATS)
     await collection.insertMany([
         {
@@ -52,7 +63,7 @@ async function populateCats() {
             breed: "Persian",
             weight: 3,
             dewormer: new Date(),
-            costs: [costFood, costSand]
+            costs: setCosts(isBaby(6))
         },
         {
             name: "Bondi",
@@ -60,7 +71,7 @@ async function populateCats() {
             breed: "Siamese",
             weight: 2,
             dewormer: new Date(),
-            costs: [costFood, costSand]
+            costs: setCosts(isBaby(3))
         },
         {
             name: "Malaquias Jr",
@@ -68,7 +79,7 @@ async function populateCats() {
             breed: "Scottish Fold",
             weight: 1,
             dewormer: new Date(),
-            costs: [costFood, costSand]
+            costs: setCosts(isBaby(1))
         },
         {
             name: "Goducho",
@@ -76,7 +87,7 @@ async function populateCats() {
             breed: "Siberian",
             weight: 4,
             dewormer: new Date(),
-            costs: [costFood, costSand]
+            costs: setCosts(isBaby(7))
         },
         {
             name: "Mizuki",
@@ -84,7 +95,7 @@ async function populateCats() {
             breed: "Bengal cat",
             weight: 2,
             dewormer: new Date(),
-            costs: [costFood, costSand]
+            costs: setCosts(isBaby(8))
         },
     ])
 }

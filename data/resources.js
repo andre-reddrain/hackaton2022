@@ -22,7 +22,7 @@ export async function findAllResources() {
     return await collection.find().toArray()
 }
 
-export async function updateResource(id, data) {
+export async function patchResource(id, data) {
     const collection = await getMongoCollection(DATABASE_NAME, COLLECTION_RESOURCES)
     const result = await collection.updateOne({ _id: ObjectId(id) }, { $set: data })
     return result.upsertedId
