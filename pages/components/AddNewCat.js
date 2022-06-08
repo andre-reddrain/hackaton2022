@@ -56,7 +56,8 @@ export default function AddNewCat(props) {
     <div>
       <form
         onSubmit={handleSubmit}
-        className={styles.newCat}>
+      // className={styles.newCat}
+      >
         <fieldset
           className={styles.resourcesForm}
           style={{ border: 'none' }}>
@@ -85,7 +86,7 @@ export default function AddNewCat(props) {
             name="race"
             required
             placeholder="eg. Maine Coon"
-            onChange={(e) => setCatInfo({ ...catInfo, Race: e.target.value })}>
+            onChange={(e) => setCatInfo({ ...catInfo, Breed: e.target.value })}>
           </input><br />
 
           <label>Weight</label>

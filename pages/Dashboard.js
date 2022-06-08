@@ -51,13 +51,13 @@ export default function Dashboard(props) {
             <div className={styles.foodContainer}>
               <div className={styles.resourceFont} style={{ color: (resources.food < (resources.maxStockFood / 2) || resources.food > resources.maxStockFood) ? "red" : "black" }}>{resources.food}kg</div>
               <div className={styles.resourceTitle}>Food</div>
-              <div className={styles.resourceInfo}>Consumption expectance</div>
+              <div className={styles.resourceInfo} style={{ marginLeft: "40px" }}>Consumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
             </div>
             <div className={styles.sandContainer}>
               <div className={styles.resourceFont} style={{ color: (resources.sand < (resources.maxStockSand / 2) || resources.sand > resources.maxStockSand) ? "red" : "black" }}>{resources.sand}kg</div>
               <div className={styles.resourceTitle}>Sand</div>
-              <div className={styles.resourceInfo}>Consumption expectance</div>
+              <div className={styles.resourceInfo} style={{ marginLeft: "40px" }}>Consumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
             </div>
 
@@ -72,7 +72,7 @@ export default function Dashboard(props) {
               </div> : <div>
                 {/* <div className={styles.resourceFont}> Replace</div> */}
                 <div className={styles.cleaningTitle}>Other Supplies</div>
-                <div className={styles.cleaningInfo}>Consumption expectance</div>
+                <div className={styles.cleaningInfo} style={{ marginLeft: "40px" }}>Consumption expectance</div>
                 <div className={styles.cleaningDate}>2 Weeks</div>
               </div>}
 
@@ -81,7 +81,7 @@ export default function Dashboard(props) {
               <div className={styles.resourceFont}>
                 {resources.capital}€</div>
               <div className={styles.resourceTitle}>Capital</div>
-              <div className={styles.resourceInfo}>Consumption expectance</div>
+              <div className={styles.resourceInfo} style={{ marginLeft: "5px" }}>Consumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
             </div>
           </div>

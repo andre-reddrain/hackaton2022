@@ -25,30 +25,30 @@ export default function Table(props) {
     <div className={styles.formTable}>
       <div>
         <table style={{ border: 'none', width: '100%' }}>
-          <tr>
-            <th className={styles.formTableHead}>Name</th>
-            <th className={styles.formTableHead}>Age</th>
-            <th className={styles.formTableHead}>Weight</th>
-            <th className={styles.formTableHead}>Breed</th>
-            <th className={styles.formTableHead}>Expenses</th>
-          </tr>
+          <tbody>
+            <tr>
+              <th className={styles.formTableHead}>Name</th>
+              <th className={styles.formTableHead}>Age</th>
+              <th className={styles.formTableHead}>Weight</th>
+              <th className={styles.formTableHead}>Breed</th>
+              <th className={styles.formTableHead}>Expenses</th>
+            </tr>
 
+            {
+              props.gatos.map((e, i) => {
+                return (
+                  <tr key={i}>
+                    <td >{e.name}</td>
+                    <td> {e.age} years</td>
+                    <td> {e.weight} kg</td>
+                    <td> {e.breed}</td>
+                    <td> -{e.costs[0]} kg / -{e.costs[1]} kg</td>
+                  </tr>
 
-
-          {
-            props.gatos.map((e, i) => {
-              return (
-                <tr key={i}>
-                  <td >{e.name}</td>
-                  <td> {e.age} years</td>
-                  <td> {e.weight} kg</td>
-                  <td> {e.breed}</td>
-                  <td> -{e.costs[0]} kg / -{e.costs[1]} kg</td>
-                </tr>
-
-              )
-            })
-          }
+                )
+              })
+            }
+          </tbody>
         </table>
       </div>
     </div>

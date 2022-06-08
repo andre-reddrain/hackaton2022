@@ -109,12 +109,14 @@ export default function AddResources(props) {
                         min="0"
                         onChange={(e) => setResource({ ...resource, Funds: e.target.value })}>
                     </input><br />
+                    <span>
+                        <label>Donation</label>
+                        <input type="checkbox"
 
-                    <label>Donation</label>
-                    <input type="checkbox"
+                        // onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}
+                        ></input><br />
+                    </span>
 
-                    // onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}
-                    ></input><br />
                     <span>
                         <input
                             className={styles.buttonSubmit}
