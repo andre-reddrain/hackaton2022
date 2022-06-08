@@ -1,0 +1,8 @@
+// Cats
+/api/cats/getCats -> Gets all cats
+/api/cats/addCat -> Adds 1 cat
+/api/cats/deleteCat -> Removes 1 cat
+
+// Resources
+/api/resources/getResources -> Gets all resources
+/api/resources/updateResources -> Updates resources
