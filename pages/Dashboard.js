@@ -27,7 +27,6 @@ export default function Dashboard(props) {
         method: "GET"
       })
       const json = await res.json()
-      console.log(json)
       setResources(json)
     }
     CallBack()

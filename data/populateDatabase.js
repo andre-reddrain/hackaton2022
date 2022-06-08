@@ -23,7 +23,6 @@ async function connectToMongo() {
  * @returns Collection
  */
 async function getMongoCollection(dbName, collectionName) {
-    // console.log(dbName)
     const client = await connectToMongo()
     return client.db(dbName).collection(collectionName)
 }
@@ -57,22 +56,22 @@ async function populateCats() {
 
     const collection = await getMongoCollection(DATABASE_NAME, COLLECTION_CATS)
     await collection.insertMany([
-        {
-            name: "Malaquias",
-            age: 6,
-            breed: "Persian",
-            weight: 3,
-            dewormer: new Date(),
-            costs: setCosts(isBaby(6))
-        },
-        {
-            name: "Bondi",
-            age: 3,
-            breed: "Siamese",
-            weight: 2,
-            dewormer: new Date(),
-            costs: setCosts(isBaby(3))
-        },
+        // {
+        //     name: "Malaquias",
+        //     age: 6,
+        //     breed: "Persian",
+        //     weight: 3,
+        //     dewormer: new Date(),
+        //     costs: setCosts(isBaby(6))
+        // },
+        // {
+        //     name: "Bondi",
+        //     age: 3,
+        //     breed: "Siamese",
+        //     weight: 2,
+        //     dewormer: new Date(),
+        //     costs: setCosts(isBaby(3))
+        // },
         {
             name: "Malaquias Jr",
             age: 1,

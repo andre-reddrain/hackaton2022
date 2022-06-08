@@ -19,7 +19,6 @@ export default function AddResources(props) {
         e.preventDefault()
         props.setViewResourceForm(false)
 
-        console.log(e)
         let food = Number(props.resources.food) + Number(resource.Food)
         let sand = Number(props.resources.sand) + Number(resource.Sand)
         let cleaningSupplies = {

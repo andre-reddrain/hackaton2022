@@ -19,8 +19,6 @@ export default function Table(props) {
     CallBack()
   }, [])
 
-  console.log(props.gatos)
-
   return (
     <div className={styles.formTable}>
       <div>

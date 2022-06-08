@@ -15,7 +15,6 @@ costs: [
 */
 
 export async function insertCat(data) {
-    console.log(data)
     const collection = await getMongoCollection(DATABASE_NAME, COLLECTION_CATS)
     const result = await collection.insertOne(data)
     return result.insertedId

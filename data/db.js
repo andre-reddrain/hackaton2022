@@ -23,7 +23,6 @@ async function connectToMongo() {
  * @returns Collection
  */
 async function getMongoCollection(dbName, collectionName) {
-    // console.log(dbName)
     const client = await connectToMongo()
     return client.db(dbName).collection(collectionName)
 }
