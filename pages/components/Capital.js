@@ -35,7 +35,7 @@ export default function Capital(props) {
             <fieldset>
             <label>AVAILABLE CAPITAL</label><br />
             
-           <input type="number"></input> 
+           <input type="number" min="0"></input> 
             
             
 

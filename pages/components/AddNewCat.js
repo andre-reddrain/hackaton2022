@@ -1,14 +1,13 @@
-
 // import styles from '../styles/Home.module.css'
 import {useState} from "react"
 
 export default function AddNewCat(props) {
     const [catInfo, setCatInfo] = useState({
-        Name: "string",
-        Age: "number",
-        Race: "string",
-        Weight: "number",
-        desparazitante: "data",
+        Name: "",
+        Age: 0,
+        Breed: "",
+        Weight: 0,
+        desparazitante: "",
         gastos : {
             comida: "",
             agua: "",
@@ -17,74 +16,70 @@ export default function AddNewCat(props) {
         }
     })
 
-    // const submit = async () => {
-    //   const res = await fetch(
-    //     '../../api/cards/createCard', {
-    //     body: JSON.stringify(catInfo),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Authenticate": localStorage.getItem("tokenG3")
-    //     },
-    //     method: "POST"
-    //   })
+    console.log(props)
 
-    //   const json = await res.json()
-  
-    // }
-  
+    function handleSubmit(e) {
+      e.preventDefault()
 
+      let gato = {
+        name: catInfo.Name,
+        age: catInfo.Age,
+        breed: catInfo.Breed,
+        Weight: catInfo.Weight
+      }
+
+      // props.setGatos({...props.gatos, gato})
+      console.log({...props.gatos, gato})
+
+      console.log(gato)
+
+      props.setViewCatForm(false)
+    }
 
   return (
-     
     <div>
-        <form onSubmit={(e) => {
-          e.preventDefault(),
-          props.setViewCatForm(false)
-          // submit()
-        }}>
-            <fieldset>
-            <label>Name</label><br />
-            <input 
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+          <label>Name</label><br />
+          <input 
             type="text" 
             name="name" 
             placeholder="eg. Malaquias"
-            onChange={(e) => setCatInfo({ ...catInfo, Name: e.target.value })}
-            ></input><br/>
+            required
+            onChange={(e) => setCatInfo({ ...catInfo, Name: e.target.value })}>
+          </input><br/>
 
+          <label>Age</label><br />
+          <input 
+            type="number"
+            name="age"
+            min="0"
+            placeholder="eg. 4" 
+            required
+            onChange={(e) => setCatInfo({ ...catInfo, Age: e.target.value })}>
+          </input><br/>
 
-            <label>Age</label><br />
-            <input 
+          <label>Race</label><br />
+          <input 
             type="text" 
-            name="name" 
-            placeholder="eg. 6 years old" 
-            onChange={(e) => setCatInfo({ ...catInfo, Age: e.target.value })}
-            ></input><br/>
-
-
-            <label>Race</label><br />
-            <input 
-            type="text" 
-            name="name" 
+            name="race" 
+            required
             placeholder="eg. Maine Coon"
-            onChange={(e) => setCatInfo({ ...catInfo, Race: e.target.value })}
-            ></input><br/>
+            onChange={(e) => setCatInfo({ ...catInfo, Race: e.target.value })}>
+          </input><br/>
 
-
-            <label>Weight</label><br />
-            <input 
+          <label>Weight</label><br />
+          <input 
             type="text" 
-            name="name" 
+            name="weight" 
+            required
             placeholder="eg. 6kg"
-            onChange={(e) => setCatInfo({ ...catInfo, Weight: e.target.value })}
-            >
-              </input><br />
+            onChange={(e) => setCatInfo({ ...catInfo, Weight: e.target.value })}>
+          </input><br />
 
-    <input type="submit"></input>
-
-
-            </fieldset>
-        </form>
-
-
-
-      </div>)}
+          <input type="submit"></input>
+        </fieldset>
+      </form>
+    </div>
+  )
+}
