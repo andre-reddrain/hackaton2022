@@ -42,7 +42,7 @@ export default function Table(props) {
                     <td> {e.age} years</td>
                     <td> {e.weight} kg</td>
                     <td> {e.breed}</td>
-                    <td> -{e.costs[0]} kg / -{e.costs[1]} kg</td>
+                    <td> -{e.costs[0]} kg (Food) / -{e.costs[1]} kg (Sand)</td>
                   </tr>
 
                 )
