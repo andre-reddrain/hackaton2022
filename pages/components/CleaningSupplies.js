@@ -1,5 +1,5 @@
 import {useState} from "react"
-
+import styles from "../../styles/Forms.module.css"
 
 export default function CleaningSupplies(props) {
     const [supplies, setSupplies] = useState({
@@ -17,21 +17,22 @@ export default function CleaningSupplies(props) {
           // props.setViewCatForm(false)
           // submit()
         }}>
-            <fieldset>
-            <label>Bleach</label><br />
-            <p>{props.resources.cleaningSupplies.bleach}</p>
+            <fieldset 
+            className={styles.stockInfo}>
+            <h2>Bleach</h2>
+            <h3>{props.resources.cleaningSupplies.bleach}</h3>
 
 
-            <label>Detergent</label><br />
-            <p>{props.resources.cleaningSupplies.detergent}</p>
+            <h2>Detergent</h2>
+            <h3>{props.resources.cleaningSupplies.detergent}</h3>
 
 
-            <label>Vaccines</label><br />
-            <p>{props.resources.cleaningSupplies.vaccines}</p>
+            <h2>Vaccines</h2>
+            <h3>{props.resources.cleaningSupplies.vaccines}</h3>
 
 
-            <label>Dewormer</label><br />
-            <p>{props.resources.cleaningSupplies.dewormer}</p>
+            <h2>Dewormer</h2>
+            <h3>{props.resources.cleaningSupplies.dewormer}</h3>
 
             <button onClick={() => props.setViewCatForm(s => !s)}>Close</button>
             </fieldset>

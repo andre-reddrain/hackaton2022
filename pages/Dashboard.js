@@ -51,13 +51,13 @@ export default function Dashboard(props) {
             <div className={styles.foodContainer}>
               <div className={styles.resourceFont}>{resources.food}kg</div>
               <div className={styles.resourceTitle}>Food</div>
-              <div className={styles.resourceInfo}>Comsumption expectance</div>
+              {/* <div className={styles.resourceInfo}>Comsumption expectance</div> */}
               <div className={styles.resourceDate}>2 Weeks</div>
             </div>
             <div className={styles.sandContainer}>
               <div className={styles.resourceFont}>{resources.sand}kg</div>
               <div className={styles.resourceTitle}>Sand</div>
-              <div className={styles.resourceInfo}>Comsumption expectance</div>
+              {/* <div className={styles.resourceInfo}>Comsumption expectance</div> */}
               <div className={styles.resourceDate}>2 Weeks</div>
           </div>
             
@@ -70,23 +70,26 @@ export default function Dashboard(props) {
                             resources={resources}
                         />
                     </div> : <div>
-                    <div className={styles.resourceFont}> Replace</div>
-                    <div className={styles.resourceTitle}>Cleaning Supply</div>
-                    <div className={styles.resourceInfo}>Comsumption expectance</div>
-                    <div className={styles.resourceDate}>2 Weeks</div>
+                    {/* <div className={styles.resourceFont}> Replace</div> */}
+                    <div className={styles.cleaningTitle}>Other Supplies</div>
+                    {/* <div className={styles.cleaningInfo}>Comsumption expectance</div> */}
+                    <div className={styles.cleaningDate}>2 Weeks</div>
                     </div>}
 
             </div>
-            <div className={styles.capitalContainer}
->
-            <div className={styles.resourceFont}>{resources.capital}€</div>
+            <div className={styles.capitalContainer}>
+            <div className={styles.resourceFont}>
+                {resources.capital}€</div>
               <div className={styles.resourceTitle}>Capital</div>
-              <div className={styles.resourceInfo}>Comsumption expectance</div>
+              <button className={styles.addFundings}
+                    onClick={() => setCapital(s => !s)}>
+                        Add Fundings</button>
+                            {capital && <div>
+                            <Capital />
+                        </div>}
+              {/* <div className={styles.resourceInfo}>Comsumption expectance</div> */}
               <div className={styles.resourceDate}>2 Weeks</div>                         
-                <button onClick={() => setCapital(s => !s)}>Add Fundings</button>
-                {capital && <div>
-                    <Capital />
-                </div>}
+                
             </div>
           </div>
 
