@@ -113,7 +113,9 @@ export default function AddResources(props) {
                     <span>
                         <input
                             className={styles.buttonSubmit}
-                            type="submit"></input>
+                            type="submit"
+                            value="Submit">
+                        </input>
                         <span>
 
                             <button
