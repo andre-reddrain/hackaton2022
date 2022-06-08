@@ -16,24 +16,44 @@ export default function AddNewCat(props) {
         }
     })
 
-    console.log(props)
-
     function handleSubmit(e) {
       e.preventDefault()
 
-      let gato = {
-        name: catInfo.Name,
-        age: catInfo.Age,
-        breed: catInfo.Breed,
-        Weight: catInfo.Weight
-      }
-
-      // props.setGatos({...props.gatos, gato})
-      console.log({...props.gatos, gato})
-
-      console.log(gato)
+      //TODO AUTOMATIC REFRESH OF DASHBOARD STATE
+      createCat(catInfo.Name, catInfo.Age, catInfo.Breed, catInfo.Weight)
 
       props.setViewCatForm(false)
+    }
+
+    async function createCat(name, age, breed, weight) {
+      const costFood = 1.4
+      const costSand = 1.5
+
+      const isBaby = ((age) => {
+        if (age <= 1) return true
+        return false
+      })
+
+      const setCosts = ((isBaby) => {
+        if (isBaby) return [costFood / 2, costSand / 2]
+        return [costFood, costSand]
+      })
+
+      const res = await fetch(`../../api/cats/addCat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          age: age,
+          breed: breed,
+          weight: weight,
+          dewormer: new Date(),
+          costs: setCosts(isBaby(age))
+        })
+      })
+      const json = await res.json()
     }
 
   return (
