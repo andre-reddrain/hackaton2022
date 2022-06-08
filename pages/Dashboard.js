@@ -6,7 +6,7 @@ import AddNewCat from "./components/AddNewCat"
 import AddResources from "./components/AddResources"
 import Table from "./components/Table"
 import CleaningSupplies from "./components/CleaningSupplies"
-import Capital from './components/Capital'
+
 
 import styles from "../styles/Home.module.css"
 
@@ -51,13 +51,13 @@ export default function Dashboard(props) {
             <div className={styles.foodContainer}>
               <div className={styles.resourceFont}>{resources.food}kg</div>
               <div className={styles.resourceTitle}>Food</div>
-              {/* <div className={styles.resourceInfo}>Comsumption expectance</div> */}
+              <div className={styles.resourceInfo}>Consumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
             </div>
             <div className={styles.sandContainer}>
               <div className={styles.resourceFont}>{resources.sand}kg</div>
               <div className={styles.resourceTitle}>Sand</div>
-              {/* <div className={styles.resourceInfo}>Comsumption expectance</div> */}
+              <div className={styles.resourceInfo}>Consumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>
           </div>
             
@@ -72,7 +72,7 @@ export default function Dashboard(props) {
                     </div> : <div>
                     {/* <div className={styles.resourceFont}> Replace</div> */}
                     <div className={styles.cleaningTitle}>Other Supplies</div>
-                    {/* <div className={styles.cleaningInfo}>Comsumption expectance</div> */}
+                    <div className={styles.cleaningInfo}>Consumption expectance</div>
                     <div className={styles.cleaningDate}>2 Weeks</div>
                     </div>}
 
@@ -81,13 +81,8 @@ export default function Dashboard(props) {
             <div className={styles.resourceFont}>
                 {resources.capital}€</div>
               <div className={styles.resourceTitle}>Capital</div>
-              <button className={styles.addFundings}
-                    onClick={() => setCapital(s => !s)}>
-                        Add Fundings</button>
-                            {capital && <div>
-                            <Capital />
-                        </div>}
-              {/* <div className={styles.resourceInfo}>Comsumption expectance</div> */}
+              
+              <div className={styles.resourceInfo}>Consumption expectance</div>
               <div className={styles.resourceDate}>2 Weeks</div>                         
                 
             </div>
@@ -98,7 +93,7 @@ export default function Dashboard(props) {
           <div>.</div>
           <div className={styles.divButton}>
             <button className={styles.button}
-              onClick={() => setShowTable(s => !s)}>{showTable ? "Hide Table" : "Show Table"}
+              onClick={() => setShowTable(s => !s)}>Show CatStock
             </button>
             {showTable && <div>
               <Table
@@ -110,7 +105,7 @@ export default function Dashboard(props) {
             </div>}
             
             <button className={styles.button}
-              onClick={() => setViewCatForm(s => !s)}>{viewCatForm ? "Go Back" : "Add New Cat"}</button>{viewCatForm && <div>
+              onClick={() => setViewCatForm(s => !s)}>Add Cat to Stock</button>{viewCatForm && <div>
                 <AddNewCat 
                   setGatos ={setGatos} 
                   viewCatForm ={viewCatForm}
@@ -118,7 +113,7 @@ export default function Dashboard(props) {
               </div>}
 
             <button className={styles.button}
-              onClick={() => setViewResourceForm(s => !s)}>{viewResourceForm ? "Go Back" : "Add Resources"}</button>
+              onClick={() => setViewResourceForm(s => !s)}>Add Resources</button>
               {viewResourceForm && <div>
                 <AddResources 
                   viewResourceForm ={viewResourceForm} 
@@ -128,13 +123,10 @@ export default function Dashboard(props) {
               }
 
           </div>
-          <div className={styles.bottomDiv}>
-
-          </div>
+        
         </div>
       </div>
     </div>
     )
 }
 
-// Aqui vai ser o cabeçalho, meter os botoes add gato, add recursos, podes delete gatos e recursos? 

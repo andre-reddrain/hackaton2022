@@ -1,6 +1,6 @@
 import Head from 'next/head'
 // import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
+import styles from '../../styles/Forms.module.css'
 import {useState} from "react"
 
 export default function AddResources(props) {
@@ -10,7 +10,8 @@ export default function AddResources(props) {
         Bleach: 0,
         Detergent: 0,
         Vaccines: 0,
-        Dewormer: 0
+        Dewormer: 0,
+        Funds: 0
     })
 
     function handleSubmit(e) {
@@ -49,8 +50,8 @@ export default function AddResources(props) {
         <form onSubmit={handleSubmit}
             
         >
-            <fieldset>
-                <label>Add Food (kg)</label><br />
+            <fieldset className={styles.resourcesForm}>
+                <label>Add Food (kg)</label>
                 <input 
                     type="number" 
                     placeholder="eg. 6"
@@ -58,7 +59,7 @@ export default function AddResources(props) {
                     onChange={(e) => setResource({ ...resource, Food: e.target.value })}>
                 </input> <span>{props.resources.food} / {props.resources.maxStockFood}</span><br/>
 
-                <label>Add Sand (kg)</label><br />
+                <label>Add Sand (kg)</label>
                 <input 
                     type="number" 
                     placeholder="eg. 6"
@@ -66,7 +67,7 @@ export default function AddResources(props) {
                     onChange={(e) => setResource({ ...resource, Sand: e.target.value })}>
                 </input> <span>{props.resources.sand} / {props.resources.maxStockSand}</span><br />
 
-                <label>Add Bleach (bottles)</label><br />
+                <label>Add Bleach (bottles)</label>
                 <input 
                     type="number" 
                     placeholder="eg. 6"
@@ -74,7 +75,7 @@ export default function AddResources(props) {
                     onChange={(e) => setResource({ ...resource, Bleach: e.target.value })}>
                 </input> <span>{props.resources.cleaningSupplies.bleach} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-                <label>Add Detergent (bottles)</label><br />
+                <label>Add Detergent (bottles)</label>
                 <input 
                     type="number" 
                     placeholder="eg. 6"
@@ -82,7 +83,7 @@ export default function AddResources(props) {
                     onChange={(e) => setResource({ ...resource, Detergent: e.target.value })}>
                 </input> <span>{props.resources.cleaningSupplies.detergent} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-                <label>Add Vaccines (quantity)</label><br />
+                <label>Add Vaccines (quantity)</label>
                 <input 
                     type="number" 
                     placeholder="eg. 6"
@@ -90,21 +91,44 @@ export default function AddResources(props) {
                     onChange={(e) => setResource({ ...resource, Vaccines: e.target.value })}>
                 </input> <span>{props.resources.cleaningSupplies.vaccines} / {props.resources.maxStockCleaningSupplies}</span><br />
 
-                <label>Add Dewormer (quantity)</label><br />
+                <label>Add Dewormer (quantity)</label>
                 <input 
                     type="number" 
                     placeholder="eg. 6"
                     min="0"
                     onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}>
-                </input> <span>{props.resources.cleaningSupplies.detergent} / {props.resources.maxStockCleaningSupplies}</span><br />
+                </input><span>{props.resources.cleaningSupplies.dewormer} / {props.resources.maxStockCleaningSupplies}</span><br />
+                
+                <label>Add Funds</label>
+                <input 
+                className ={styles.input}
+                    type="number" 
+                    placeholder="eg. 600"
+                    min="0"
+                    onChange={(e) => setResource({ ...resource, Funds: e.target.value })}>
+                </input><br />
 
                 <label>Donation</label>
                     <input type="checkbox"
                     
                     // onChange={(e) => setResource({ ...resource, Dewormer: e.target.value })}
                     ></input><br />
+<span>
+ <input 
+                className = {styles.buttonSubmit}
+                type="submit"></input>
+                <span>
 
-                <input type="submit"></input>
+        <button 
+                className = {styles.buttonClose}
+                onClick={() => props.setViewResourceForm(e => !e)}>Close</button>
+
+                </span>
+
+
+</span>
+               
+                
             </fieldset>
         </form>
     </div>
